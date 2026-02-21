@@ -1,0 +1,88 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // 개발 단계: 로그인한 사용자는 모든 데이터에 접근 가능
+    // 프로덕션에서는 더 엄격한 규칙 적용 필요
+
+    // Users collection
+    match /users/{userId} {
+      allow read, write: if request.auth != null;
+    }
+
+    // Memberships
+    match /memberships/{docId} {
+      allow read, write: if request.auth != null;
+    }
+
+    // Purchases
+    match /purchases/{docId} {
+      allow read, write: if request.auth != null;
+    }
+
+    // Transfer requests
+    match /transfer_requests/{docId} {
+      allow read, write: if request.auth != null;
+    }
+
+    // Refund requests
+    match /refund_requests/{docId} {
+      allow read, write: if request.auth != null;
+    }
+
+    // Pauses
+    match /pauses/{docId} {
+      allow read, write: if request.auth != null;
+    }
+
+    // Lockers
+    match /lockers/{docId} {
+      allow read, write: if request.auth != null;
+    }
+
+    // Locker requests
+    match /locker_requests/{docId} {
+      allow read, write: if request.auth != null;
+    }
+
+    // Sales
+    match /sales/{docId} {
+      allow read, write: if request.auth != null;
+    }
+
+    // Attendance
+    match /attendance/{docId} {
+      allow read, write: if request.auth != null;
+    }
+
+    // PT Sessions
+    match /pt_sessions/{docId} {
+      allow read, write: if request.auth != null;
+    }
+
+    // Settings
+    match /settings/{docId} {
+      allow read, write: if request.auth != null;
+    }
+
+    // Member requests (purchase, pause, refund)
+    match /member_requests/{docId} {
+      allow read, write: if request.auth != null;
+    }
+
+    // Inquiries
+    match /inquiries/{docId} {
+      allow read, write: if request.auth != null;
+    }
+
+    // PT Schedules
+    match /pt_schedules/{docId} {
+      allow read, write: if request.auth != null;
+    }
+
+    // Trainers
+    match /trainers/{docId} {
+      allow read, write: if request.auth != null;
+    }
+  }
+}
